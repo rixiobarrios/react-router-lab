@@ -1,39 +1,34 @@
-import React, { Component } from 'react'
-import $ from 'jquery'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 class Stock extends Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
       selectedStock: this.props.match.params.symbol,
       apiStock: {}
-    }
+    };
   }
 
-  componentDidMount () {
-    let url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=' + this.state.selectedStock
-    $.ajax({
-      url,
-      method: 'GET',
-      dataType: 'jsonp'
-    }).then((response) => {
-      this.setState({ apiStock: response })
-    })
+  componentDidMount() {
+    let url =
+      'https://api.iextrading.com/1.0/tops?symbols=' + this.state.selectedStock;
+    axios.get(url).then(response => {
+      this.setState({ apiStock: response.data[0] });
+    });
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <h2>{this.state.apiStock.Name} ({this.state.apiStock.Symbol})</h2>
+        <h2>({this.state.apiStock.symbol})</h2>
         <ul>
-          <li>Current Price: {this.state.apiStock.LastPrice}</li>
-          <li>Change: {this.state.apiStock.Change}</li>
-          <li>High: {this.state.apiStock.High}</li>
-          <li>Low: {this.state.apiStock.Low}</li>
+          <li>Last Sale Price: {this.state.apiStock.lastSalePrice}</li>
+          <li>Security Type: {this.state.apiStock.securityType}</li>
         </ul>
       </div>
-    )
+    );
   }
 }
 
-export default Stock
+export default Stock;
