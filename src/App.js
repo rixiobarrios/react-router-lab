@@ -26,9 +26,6 @@ class App extends Component {
             <Link to="/stocks">Home</Link>
           </div>
           <div className="nav-item">
-            <Link to="/search">Search</Link>
-          </div>
-          <div className="nav-item">
             <Link to="/about">About</Link>
           </div>
         </div>
