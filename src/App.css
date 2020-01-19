@@ -1,0 +1,55 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14pt;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: initial;
+}
+
+nav {
+  background: rgb(129, 22, 192);
+  color: rgb(176, 211, 81);
+  display: flex;
+  justify-content: initial;
+  align-items: center;
+  padding: 0 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+nav img {
+  max-height: 50px;
+  padding: 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+nav h1 {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+  color: rgb(176, 211, 81);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  display: inline-block;
+  padding: 20px;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: #282c34;
+}
+
+main {
+  width: 900px;
+  margin: auto;
+  height: 100%;
+}
